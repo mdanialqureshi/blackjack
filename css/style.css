@@ -3,3 +3,84 @@
     padding : 0;
     box-sizing: border-box;
 }
+
+body {
+    background-color: #292c34;
+    color: white;
+}
+header {
+    text-align: center;
+    padding: 10px;
+    background-color: lightgray;
+    color: black;
+}
+
+.page {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    border-radius: 10px;
+}
+
+.page > h3 {
+    margin: 0px auto;   
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.game-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    background: url(../images/bj-background.jpg) center;
+}
+
+.board {
+    display: flex;
+    width: 50%;
+    height: 300px;
+    justify-content: space-around;
+}
+
+.board div {
+    border: 1px solid black;
+    text-align: center;
+    flex : 1;
+}
+
+.board img {
+    width: 20%;
+    /* padding: 10px; makes the image smaller */
+    margin: 5px;
+}
+
+.commands {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border: solid 1px black;
+}
+
+.commands > button {
+    margin: 10px 10px;
+}
+
+.score-table {
+    margin: 10px;
+}
+
+.score-table > table,tr,td,th {
+    border: 1px solid white;
+    padding: 5px;
+    text-align: center;
+}
+
+
+@media only screen and (min-width: 700px){
+    .page {
+        width: 800px;
+    }
+}
