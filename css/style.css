@@ -69,13 +69,21 @@ header {
 }
 
 .score-table {
+    display: flex;
+    width: 250px;
     margin: 10px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .score-table > table,tr,td,th {
     border: 1px solid white;
     padding: 5px;
     text-align: center;
+}
+
+.score-table > button {
+    height: 50px;
 }
 
 

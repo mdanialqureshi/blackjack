@@ -14,6 +14,7 @@ const hit_sound = new Audio('sounds/swish.m4a');
 const lose_sound = new Audio('sounds/aww.mp3');
 const win_sound = new Audio('sounds/cash.mp3');
 const result_h3 = document.getElementById('result');
+const reset_all_btn = document.getElementById('reset-all');
 
 const blackjackGame = {
     "you": {
@@ -65,6 +66,7 @@ function main() {
         deal();
     })
 
+    reset_all_btn.addEventListener('click', ()=> reset(true));
 }
 
 main();
@@ -84,11 +86,11 @@ function stand() {
 
 function deal() {
     if (blackjackGame.turnsOver) {
-        reset();
+        reset(false);
     }
 }
 
-function reset() {
+function reset(all) {
     // remove all the images
     //this is an array
     let yourImages = document.querySelector(YOU['board']).querySelectorAll('img');
@@ -110,6 +112,14 @@ function reset() {
     result_h3.style.color = 'white';
     blackjackGame.isStand = false;
     blackjackGame.turnsOver = false;
+    if(all){
+        wins_span.innerHTML = 0;
+        loses_span.innerHTML = 0;
+        draws_span.innerHTML = 0;
+        blackjackGame.wins = 0;
+        blackjackGame.losses = 0;
+        blackjackGame.draws = 0;
+    }
 }
 
 function showCard(activePlayer) {
@@ -157,13 +167,12 @@ function sleep(ms) { //sleep function
 
 //async function meaning code is not running linearly. 
 // every second the computer is waiting the browser freezes if the computer is waiting
-// the async function allows it to not run linearly rather in parralel. 
+// the async function allows it to not run linearly rather in parralel.
 async function dealerLogic() {
     while (DEALER['score'] < 16 && blackjackGame['isStand'] === true) {
         showCard(DEALER);
         await sleep(1000);
     }
-
 
     blackjackGame['turnsOver'] = true;
     let winner = computeWinner();
