@@ -20,7 +20,7 @@ const blackjackGame = {
     "you": {
         'scoreSpan': "#user-bj-result",
         'board': "#user-board",
-        'score': 0
+        'score': 10
     },
     "dealer": {
         'scoreSpan': "#dealer-bj-result",
@@ -32,18 +32,18 @@ const blackjackGame = {
     "wins": 0,
     "losses": 0,
     "draws": 0,
-    "isStand": false,
+    "isStand": true,
     "turnsOver": false,
 }
 
 // can also put this in blackJackGame object
 const card_values = {
-    1: 1,
+    1: 10,
     2: 2,
     3: 3,
     4: 4,
     5: 5,
-    6: 6,
+    6: 62,
     7: 7,
     8: 8,
     9: 9,
